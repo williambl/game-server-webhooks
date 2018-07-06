@@ -1,11 +1,20 @@
 import requests
+import argparse
 
 url = ""
 
-game = "A game"
-link = "https://example.com"
-addr = "0.0.0.0"
-image = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/1024px-Example_image.svg.png"
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--game", help="The name of the game being played.", required=True)
+parser.add_argument("--link", help="A link to the game being played.", required=True)
+parser.add_argument("--addr", help="The address of the server.", required=True)
+parser.add_argument("--image", help="An image of the game.", required=True)
+args = parser.parse_args()
+
+game = args.game
+link = args.link
+addr = args.addr
+image = args.image
 
 request = {
     "text": "New server started!",
@@ -14,7 +23,6 @@ request = {
             "fallback": f"New {game} server started at {addr}",
             "title": f"{game} server started!",
             "title_link": f"{link}",
-            "text": f"Address: "+addr,
             "color": "#fa8423",
             "fields": [
                 {
