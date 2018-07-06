@@ -1,20 +1,16 @@
 #!/bin/sh
-url=""
-
+url=ADD_URL
 request="
 {
-    \"name\": \"\",
-    \"channel_id\": \"\",
-    \"token\": \"\",
-    \"avatar\": null,
-    \"guild_id\": \"\",
-    \"id\": \"\",
-    \"user\": {
-        \"username\": \"\",
-        \"discriminator\": \"\",
-        \"id\": \"\",
-        \"avatar\": \"\"
-    }
+    \"text\": \"text\",
+    \"attachments\": [
+        {
+            \"fallback\": \"fallback\",
+            \"author_name\": \"author_name\",
+            \"title\": \"title\",
+            \"text\": \"text\"
+        }
+    ]
 }"
 
 echo $request
