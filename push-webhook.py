@@ -27,14 +27,24 @@ request = {
             "fields": [
                 {
                     "title": "Game",
-                    "value": f"{game}"
+                    "value": f"{game}",
+                    "short": True
                 },
 		{
 		    "title": "Address",
-		    "value": f"{addr}"
+		    "value": f"{addr}",
+                    "short": True
 		}
             ],
-            "image_url": f"{image}",
+            "actions": [
+                {
+                    "name": "Join Game",
+                    "text": "Join",
+                    "url": f"{link}",
+                    "style": "primary"
+                }
+            ],
+            "image_url": f"{image}"
         }
     ]
 }
