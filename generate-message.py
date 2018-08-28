@@ -13,7 +13,7 @@ if (game == "Garry's Mod Sandbox"):
     image = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Gmodlogo.svg/480px-Gmodlogo.svg.png"
 elif (game == "Garry's Mod Battle Royale"):
     image = "https://steamuserimages-a.akamaihd.net/ugc/279595726542479855/0FA7121E5843B345BC171845C3FB2D80BC13758D/"
-elif (game == "Garry's Mod Jazzstronauts"):
+elif (game == "Garry's Mod Jazztronauts"):
     image = "https://steamuserimages-a.akamaihd.net/ugc/946206517762697863/E7057CE35109733B7AA11BE7EAF677F5CE6BB7B4/"
 elif (game == "Minecraft"):
     image = "https://www.planwallpaper.com/static/images/YkeGu-ph_rawmmx5.png"
