@@ -4,6 +4,11 @@ import sys
 
 game = sys.argv[1]
 
+if (len(sys.argv) > 2):
+    redirect_to_game = sys.argv[2] == "redirect"
+else:
+    redirect_to_game = False
+
 if (game == "Garry's Mod Sandbox"):
     image = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Gmodlogo.svg/480px-Gmodlogo.svg.png"
 elif (game == "Garry's Mod Battle Royale"):
@@ -22,5 +27,10 @@ else:
 ni.ifaddresses('eth0')
 ip = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
 
-subprocess.run(["python3.6", "push-webhook.py", "--game", game, "--link", f"http://{ip}:8080", "--addr", ip, "--image", image])
-subprocess.run(["python3.6", "redirect-to-game.py", ip])
+if (redirect_to_game):
+    link = f"http://{ip}:8080"
+else:
+    link = ""
+subprocess.run(["python3.6", "push-webhook.py", "--game", game, "--link", link, "--addr", ip, "--image", image])
+if (redirect_to_game):
+    subprocess.run(["python3.6", "redirect-to-game.py", ip])
