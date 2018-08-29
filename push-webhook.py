@@ -1,7 +1,8 @@
 import requests
 import argparse
+import os
 
-url = ""
+url = os.getenv("GAME_WEBHOOK_URL")
 
 parser = argparse.ArgumentParser()
 
