@@ -10,12 +10,14 @@ parser.add_argument("--game", help="The name of the game being played.", require
 parser.add_argument("--link", help="A link to the game being played.", required=True)
 parser.add_argument("--addr", help="The address of the server.", required=True)
 parser.add_argument("--image", help="An image of the game.", required=True)
+parser.add_argument("--message", help="The message to send", required=False)
 args = parser.parse_args()
 
 game = args.game
 link = args.link
 addr = args.addr
 image = args.image
+message = args.message
 
 request = {
     "text": "New server started!",
@@ -24,6 +26,7 @@ request = {
             "fallback": f"New {game} server started at {addr}.",
             "title": f"{game} server started!",
             "title_link": f"{link}",
+            "text": f"{message}"
             "color": "#fa8423",
             "fields": [
                 {
