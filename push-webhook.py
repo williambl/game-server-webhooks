@@ -21,7 +21,7 @@ request = {
     "text": "New server started!",
     "attachments": [
         {
-            "fallback": f"New {game} server started at {addr}. Click the link below to join.",
+            "fallback": f"New {game} server started at {addr}.",
             "title": f"{game} server started!",
             "title_link": f"{link}",
             "color": "#fa8423",
