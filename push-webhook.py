@@ -26,7 +26,7 @@ request = {
             "fallback": f"New {game} server started at {addr}.",
             "title": f"{game} server started!",
             "title_link": f"{link}",
-            "text": f"{message}"
+            "text": f"{message}",
             "color": "#fa8423",
             "fields": [
                 {
