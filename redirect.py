@@ -7,5 +7,3 @@ class FakeRedirect(BaseHTTPRequestHandler):
        new_path = 'steam://connect/'+sys.argv[1]
        self.send_header('Location', new_path)
        self.end_headers()
-
-HTTPServer(("", 8080), FakeRedirect).serve_forever()

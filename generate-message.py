@@ -1,3 +1,5 @@
+from http.server import *
+from redirect import FakeRedirect
 import netifaces as ni
 import subprocess
 import sys
@@ -76,6 +78,9 @@ def main():
 
     request = create_request(url, game, message, image, ip)
     r = requests.post(url, json = request)
+
+    if (redirect):
+        HTTPServer(("", 8080), FakeRedirect).serve_forever()
 
 if __name__ == "__main__":
     main()
