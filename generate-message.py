@@ -1,5 +1,3 @@
-from http.server import *
-from redirect import FakeRedirect
 import netifaces as ni
 import subprocess
 import sys
@@ -28,20 +26,13 @@ def get_ip_address():
     ni.ifaddresses('eth0')
     return ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
 
-def set_link(redirect):
-    if (redirect):
-        return f"http://{ip}:8080"
-    else:
-        return ""
-
-def create_request(url, game, message, image, ip):
+def create_request(game, message, image, ip):
     request = {
         "text": "New server started!",
         "attachments": [
             {
                 "fallback": f"New {game} server started at {ip}.",
                 "title": f"{game} server started!",
-                "title_link": f"{url}",
                 "text": f"{message}",
                 "color": "#fa8423",
                 "fields": [
@@ -56,14 +47,6 @@ def create_request(url, game, message, image, ip):
                         "short": True
                     }
                 ],
-                "actions": [
-                    {
-                        "name": "Join Game",
-                        "text": "Join",
-                        "url": f"{url}",
-                        "style": "primary"
-                    }
-                ],
                 "image_url": f"{image}"
             }
         ]
@@ -74,13 +57,10 @@ def main():
     url, game, redirect, message, games = setup_variables()
     image = set_game_image(games, game)
     ip = get_ip_address()
-    link = set_link(redirect)
 
-    request = create_request(link, game, message, image, ip)
+    request = create_request(game, message, image, ip)
     r = requests.post(url, json = request)
-
-    if (redirect):
-        HTTPServer(("", 8080), FakeRedirect).serve_forever()
+    print(r.text)
 
 if __name__ == "__main__":
     main()
