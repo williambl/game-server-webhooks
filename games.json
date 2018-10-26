@@ -1,20 +1,33 @@
 {
     
-      "Garry's Mod Sandbox": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Gmodlogo.svg/480px-Gmodlogo.svg.png"
-    ,
+      "Garry's Mod Sandbox": [
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Gmodlogo.svg/480px-Gmodlogo.svg.png",
+          "#0895f0"
+      ],
     
-      "Garry's Mod Battle Royale": "https://steamuserimages-a.akamaihd.net/ugc/279595726542479855/0FA7121E5843B345BC171845C3FB2D80BC13758D/"
-    ,
+      "Garry's Mod Battle Royale": [
+          "https://steamuserimages-a.akamaihd.net/ugc/279595726542479855/0FA7121E5843B345BC171845C3FB2D80BC13758D/",
+          "#0895f0"
+      ],
     
-      "Garry's Mod Jazztronauts": "https://steamuserimages-a.akamaihd.net/ugc/946206517762697863/E7057CE35109733B7AA11BE7EAF677F5CE6BB7B4/"
-    ,
+      "Garry's Mod Jazztronauts": [
+          "https://steamuserimages-a.akamaihd.net/ugc/946206517762697863/E7057CE35109733B7AA11BE7EAF677F5CE6BB7B4/",
+          "#0895f0"
+      ],
     
-      "Minecraft": "https://f4.bcbits.com/img/a3390257927_10.jpg"
-    ,
+      "Minecraft": [
+          "https://f4.bcbits.com/img/a3390257927_10.jpg",
+          "#67ab3a"
+      ],
     
-      "Left 4 Dead 2": "https://orig02.deviantart.net/e37a/f/2010/277/0/1/left_4_dead_2_ellis_by_jasperhalegirl-d3024kj.jpg"
-    ,
+      "Left 4 Dead 2": [
+          "https://orig02.deviantart.net/e37a/f/2010/277/0/1/left_4_dead_2_ellis_by_jasperhalegirl-d3024kj.jpg",
+          "#be2025"
+      ],
     
-      "Team Fortress 2": "http://clipground.com/images/team-fortress-2-clipart-6.png"
+      "Team Fortress 2": [
+          "http://clipground.com/images/team-fortress-2-clipart-6.png",
+          "#9e5423"
+      ]
     
 }

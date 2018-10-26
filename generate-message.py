@@ -19,9 +19,9 @@ def get_variables():
 
     return url, game, redirect, message, games
 
- # find the game in the game list, and return the image that corresponds to it
-def get_game_image(game_list, game_name):
-    return game_list.get(game_name, "")
+ # find the game in the game list, and return the image and colour that corresponds to it
+def get_game_image_and_colour(game_list, game_name):
+    return tuple(game_list.get(game_name, ""))
 
  # get the ip address from eth0
 def get_ip_address():
@@ -29,7 +29,7 @@ def get_ip_address():
     return ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
 
  # create the json request
-def create_request(game, message, image, ip):
+def create_request(game, message, image, colour, ip):
     request = {
         "text": "New server started!",
         "attachments": []
@@ -39,7 +39,7 @@ def create_request(game, message, image, ip):
         "fallback": f"New {game} server started at {ip}.",
         "title": f"{game} server started!",
         "text": f"{message}",
-        "color": "#fa8423",
+        "color": f"{colour}",
         "fields": [],
         "image_url": f"{image}"
     }
@@ -66,10 +66,10 @@ def create_request(game, message, image, ip):
 
 def main():
     url, game, redirect, message, games = get_variables()
-    image = get_game_image(games, game)
+    image, colour = get_game_image_and_colour(games, game)
     ip = get_ip_address()
 
-    request = create_request(game, message, image, ip)
+    request = create_request(game, message, image, colour, ip)
     r = requests.post(url, json = request)
 
 if __name__ == "__main__":
