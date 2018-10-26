@@ -7,7 +7,7 @@ import argparse
 import os
 
  # set up variables from input
-def setup_variables():
+def get_variables():
     url = os.getenv("GAME_WEBHOOK_URL")
 
     game = sys.argv[1]
@@ -20,7 +20,7 @@ def setup_variables():
     return url, game, redirect, message, games
 
  # find the game in the game list, and return the image that corresponds to it
-def set_game_image(game_list, game_name):
+def get_game_image(game_list, game_name):
     return game_list.get(game_name, "")
 
  # get the ip address from eth0
@@ -65,8 +65,8 @@ def create_request(game, message, image, ip):
     return request
 
 def main():
-    url, game, redirect, message, games = setup_variables()
-    image = set_game_image(games, game)
+    url, game, redirect, message, games = get_variables()
+    image = get_game_image(games, game)
     ip = get_ip_address()
 
     request = create_request(game, message, image, ip)
