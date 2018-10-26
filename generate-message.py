@@ -76,7 +76,7 @@ def main():
     ip = get_ip_address()
     link = set_link(redirect)
 
-    request = create_request(url, game, message, image, ip)
+    request = create_request(link, game, message, image, ip)
     r = requests.post(url, json = request)
 
     if (redirect):
