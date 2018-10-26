@@ -19,13 +19,16 @@ def setup_variables():
 
     return url, game, redirect, message, games
 
+ # find the game in the game list, and return the image that corresponds to it
 def set_game_image(game_list, game_name):
     return game_list.get(game_name, "")
 
+ # get the ip address from eth0
 def get_ip_address():
     ni.ifaddresses('eth0')
     return ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
 
+ # create the json request
 def create_request(game, message, image, ip):
     request = {
         "text": "New server started!",
