@@ -29,28 +29,36 @@ def get_ip_address():
 def create_request(game, message, image, ip):
     request = {
         "text": "New server started!",
-        "attachments": [
-            {
-                "fallback": f"New {game} server started at {ip}.",
-                "title": f"{game} server started!",
-                "text": f"{message}",
-                "color": "#fa8423",
-                "fields": [
-                    {
-                        "title": "Game",
-                        "value": f"{game}",
-                        "short": True
-                    },
-                    {
-                        "title": "Address",
-                        "value": f"{ip}",
-                        "short": True
-                    }
-                ],
-                "image_url": f"{image}"
-            }
-        ]
+        "attachments": []
     }
+
+    attachment = {
+        "fallback": f"New {game} server started at {ip}.",
+        "title": f"{game} server started!",
+        "text": f"{message}",
+        "color": "#fa8423",
+        "fields": [],
+        "image_url": f"{image}"
+    }
+
+    fields = [
+        {
+            "title": "Game",
+            "value": f"{game}",
+            "short": True
+        },
+        {
+            "title": "Address",
+            "value": f"{ip}",
+            "short": True
+        }
+    ]
+
+    for field in fields:
+        attachment['fields'].append(field)
+
+    request['attachments'].append(attachment)
+    print(request)
     return request
 
 def main():
@@ -60,7 +68,6 @@ def main():
 
     request = create_request(game, message, image, ip)
     r = requests.post(url, json = request)
-    print(r.text)
 
 if __name__ == "__main__":
     main()
